@@ -24,6 +24,8 @@
         (if arg
             (neotree-enter arg)
           (let ((mru-winum (winum-get-number (get-mru-window))))
+            (when (not (neo-window--minimize-p))
+              (neo-window--zoom 'minimize))
             (apply 'neotree-enter (list mru-winum))))))))
 
 (defun spacemacs/neotree-collapse ()
